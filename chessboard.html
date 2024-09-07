@@ -9,13 +9,16 @@
                 display: grid;
                 grid-template-columns: repeat(8,60px);
                 grid-template-rows: repeat(8, 60px);
+                border: 2px black;
             }
             .square {
                 width:60px;
                 height:60px;
+
             }
             .white {
-                background-color: white;
+                background-color: white
+ 
             }
             .black {
                 background-color: black;
@@ -24,15 +27,34 @@
     </head>
     <body>
         <div id="chessboard"></div>
-        <script>
-
+        <script>  
+        
         var chessboard = document.getElementById("chessboard");
-
+        //html chesspieces
+        var pieces = {
+            white: {
+                king: "&#9812;",
+                queen: "&#9813;",
+                rook: "&#9814;",
+                bishop: "&#9814;",
+                knight: "&#9816;",
+                pawn: "	&#9817;",
+            },
+            black: {
+                king: "&#9818;",
+                queen: "&#9819;",
+                rook: "&#9820;",
+                bishop: "&#9821;",
+                knight: "&#9822;",
+                pawn: "&#9823;",
+            }
+            } 
         for (let row = 0; row < 8; row++) {
+            chessboard(row)= "";
             for (let column = 0; column < 8; column++) {
+            }
+        }
             var square = document.createElement("div");
-            square.className = "square";
-
             if ((row+column) % 2 == 0) {
                 square.classList.add("white");
             } 
@@ -40,10 +62,24 @@
                 square.classList.add("black");
             }
 
-            chessboard.append(square);
+            chessboard(0)= {
+                pieces.black.rook, pieces.black.knight, pieces.black.bishop, pieces.black.queen, pieces.black.king, pieces.black.bishop, pieces.black.knight, pieces.black.rook
             }
-        }
+            chessboard(1)= {
+                pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn
+            }
+            chessboard(7) = {
+                pieces.white.rook, pieces.white.knight, pieces.white.bishop, pieces.white.queen, pieces.white.king, pieces.white.bishop, pieces.white.knight, pieces.white.rook
+            }
+            chessboard(8) = {
+                pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn
+            }
+            
+            chessboard.append(square);
+        
 
         </script>
     </body>
 </html>
+
+
