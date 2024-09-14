@@ -3,27 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="chessboard.css">
         <title>Chessboard</title>
-        <style>
-            #chessboard {
-                display: grid;
-                grid-template-columns: repeat(8,60px);
-                grid-template-rows: repeat(8, 60px);
-                border: 2px black;
-            }
-            .square {
-                width:60px;
-                height:60px;
-
-            }
-            .white {
-                background-color: white
- 
-            }
-            .black {
-                background-color: black;
-            }
-        </style>
     </head>
     <body>
         <div id="chessboard"></div>
@@ -48,13 +29,12 @@
                 knight: "&#9822;",
                 pawn: "&#9823;",
             }
-            } 
+            };
+
         for (let row = 0; row < 8; row++) {
-            chessboard(row)= "";
             for (let column = 0; column < 8; column++) {
-            }
-        }
             var square = document.createElement("div");
+            square.classList.add("square");
             if ((row+column) % 2 == 0) {
                 square.classList.add("white");
             } 
@@ -62,21 +42,21 @@
                 square.classList.add("black");
             }
 
-            chessboard(0)= {
-                pieces.black.rook, pieces.black.knight, pieces.black.bishop, pieces.black.queen, pieces.black.king, pieces.black.bishop, pieces.black.knight, pieces.black.rook
+            if (row == 0) {
+                square.innerHTML = ["&#9820;", "&#9822;", "&#9821;", "&#9823;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"][column];
             }
-            chessboard(1)= {
-                pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn, pieces.black.pawn
+            else if (row == 1) {
+                square.innerHTML = ["&#9823;"];
             }
-            chessboard(7) = {
-                pieces.white.rook, pieces.white.knight, pieces.white.bishop, pieces.white.queen, pieces.white.king, pieces.white.bishop, pieces.white.knight, pieces.white.rook
+            else if (row == 6) {
+                square.innerHTML = ["&#9817;"];
             }
-            chessboard(8) = {
-                pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn, pieces.white.pawn
+            else if (row == 7) {
+                square.innerHTML = ["&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"][column];
             }
-
             chessboard.append(square);
-        
+            }
+        }
 
         </script>
     </body>
