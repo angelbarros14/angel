@@ -9,32 +9,36 @@
     <body>
         <div id="chessboard"></div>
         <script>  
-        
+        //document.getElementById (js) = kinuha yung Id attribute css
         var chessboard = document.getElementById("chessboard");
-        //html chesspieces
+        // html pieces
         var pieces = {
             white: {
-                king: "&#9812;",
-                queen: "&#9813;",
-                rook: "&#9814;",
-                bishop: "&#9814;",
-                knight: "&#9816;",
-                pawn: "&#9817;",
+                king: "&#9812",
+                queen: "&#9813",
+                rook: "&#9814",
+                bishop: "&#9818",
+                knight: "&#9816",
+                pawn: "&#9817",
             },
             black: {
-                king: "&#9818;",
-                queen: "&#9819;",
-                rook: "&#9820;",
-                bishop: "&#9821;",
-                knight: "&#9822;",
-                pawn: "&#9823;",
+                king: "&#9818",
+                queen: "&#9819",
+                rook: "&#9820",
+                bishop: "&#9821",
+                knight: "&#9822",
+                pawn: "&#9823",
             }
             };
-
+        //row loop
         for (let row = 0; row < 8; row++) {
+            //column loop
             for (let column = 0; column < 8; column++) {
+            //document.createElement = create ng HTML element sa js/DOM
             var square = document.createElement("div");
+            //element.classList.add = add ng class attribute sa js/DOM 
             square.classList.add("square");
+            //if even or odd // kung divisible ba sa 2
             if ((row+column) % 2 == 0) {
                 square.classList.add("white");
             } 
@@ -43,16 +47,16 @@
             }
 
             if (row == 0) {
-                square.innerHTML = ["&#9820;", "&#9822;", "&#9821;", "&#9823;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"][column];
+                square.innerHTML = ["&#9820", "&#9822", "&#9821", "&#9823", "&#9818", "&#9821", "&#9822", "&#9820"][column];
             }
             else if (row == 1) {
-                square.innerHTML = ["&#9823;"];
+                square.innerHTML = ["&#9823"];
             }
             else if (row == 6) {
-                square.innerHTML = ["&#9817;"];
+                square.innerHTML = ["&#9817"];
             }
             else if (row == 7) {
-                square.innerHTML = ["&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"][column];
+                square.innerHTML = ["&#9814", "&#9816", "&#9815", "&#9813", "&#9812", "&#9815", "&#9816", "&#9814"][column];
             }
             chessboard.append(square);
             }
